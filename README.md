@@ -6,7 +6,7 @@ A high-performance backend system for ingesting, normalizing, and serving crypto
 
 ## 📂 Project Structure
 
-\`\`\`text
+```text
 kasparro-backend/
 ├── app/
 │   ├── __init__.py
@@ -37,20 +37,20 @@ kasparro-backend/
 ├── run.sh                   # Startup Script
 ├── README.md                # Documentation
 └── requirements.txt         # Dependencies
-\`\`\`
+```
 
 ## 🏗 Architecture
 
 The system follows a **Service-Oriented Architecture (SOA)** with a focus on data integrity and modularity.
 
-\`\`\`mermaid
+```mermaid
 graph LR
     A[Data Sources] -->|Fetch JSON| B(Ingestion Service)
     B -->|Normalize| C{PostgreSQL Database}
     D[CSV Upload] -->|Parse| C
     C -->|Query| E[FastAPI Backend]
     E -->|Serve JSON| F[Client / Frontend]
-\`\`\`
+```
 
 ### Key Components:
 1.  **Ingestion Engine:** Fetches data from multiple sources (CoinPaprika, CoinGecko) and normalizes it into a unified schema.
@@ -75,26 +75,26 @@ graph LR
 -   Docker & Docker Compose installed.
 
 ### 1. Clone the Repository
-\`\`\`bash
+```bash
 git clone <YOUR_REPO_URL>
 cd kasparro-backend
-\`\`\`
+```
 
 ### 2. Configure Environment
-Create a \`.env\` file in the root directory:
-\`\`\`env
+Create a `.env` file in the root directory:
+```env
 DATABASE_URL=postgresql://postgres:postgres@db:5432/kasparro
 COINPAPRIKA_API_KEY=your_key_here
 COINGECKO_API_KEY=your_key_here
-\`\`\`
+```
 
 ### 3. Run with Docker
-\`\`\`bash
+```bash
 docker-compose up --build -d
-\`\`\`
+```
 
 ### 4. Initialize Database & Data
-\`\`\`bash
+```bash
 # Create Tables
 docker-compose exec backend python -m app.init_db
 
@@ -103,7 +103,7 @@ docker-compose run --rm backend python -m app.ingestion.pipeline
 
 # Load Historical CSV Data
 docker-compose exec backend python -m app.ingestion.csv_loader
-\`\`\`
+```
 
 ---
 
@@ -111,13 +111,13 @@ docker-compose exec backend python -m app.ingestion.csv_loader
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
-| \`GET\` | \`/health\` | Check DB connection and system status. |
-| \`GET\` | \`/data\` | Retrieve market data (Supports pagination \`limit\` & \`offset\`). |
+| `GET` | `/health` | Check DB connection and system status. |
+| `GET` | `/data` | Retrieve market data (Supports pagination `limit` & `offset`). |
 
 **Example Request:**
-\`\`\`bash
+```bash
 curl "http://localhost:8000/data?limit=5&symbol=BTC"
-\`\`\`
+```
 
 ---
 
@@ -131,4 +131,3 @@ curl "http://localhost:8000/data?limit=5&symbol=BTC"
     - [x] Multi-source support (Added CoinGecko)
     - [x] Data Normalization
     - [x] Raw Data Auditing
-
