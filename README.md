@@ -6,6 +6,43 @@ A high-performance backend system for ingesting, normalizing, and serving crypto
 
 ## 📂 Project Structure
 
+\`\`\`text
+kasparro-backend/
+├── app/
+│   ├── __init__.py
+│   ├── main.py              # Entry point
+│   ├── models.py            # Database Tables
+│   ├── schemas.py           # API Response Models
+│   ├── init_db.py           # DB Initialization Script
+│   ├── api/
+│   │   ├── __init__.py
+│   │   └── routes.py        # API Endpoints
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── config.py        # Settings
+│   │   └── database.py      # DB Connection
+│   ├── ingestion/
+│   │   ├── __init__.py
+│   │   ├── pipeline.py      # Main ETL Script
+│   │   └── csv_loader.py    # CSV Parser
+│   └── services/
+│       ├── __init__.py
+│       ├── coinpaprika.py   # API Adapter 1
+│       └── coingecko.py     # API Adapter 2
+├── .env                     # Secrets (NOT in GitHub)
+├── .gitignore               # git config
+├── docker-compose.yml       # Infrastructure
+├── Dockerfile               # Build instructions
+├── historical_data.csv      # Dummy Data
+├── run.sh                   # Startup Script
+├── README.md                # Documentation
+└── requirements.txt         # Dependencies
+\`\`\`
+
+---
+
+## 📂 Project Structure
+
 ```text
 kasparro-backend/
 ├── app/
