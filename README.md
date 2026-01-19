@@ -7,7 +7,7 @@ A high-performance backend system for ingesting, normalizing, and serving crypto
 ## 📂 Project Structure
 
 ```text
-kasparro-backend/
+Crypto Analytics Platform/
 ├── app/
 │   ├── __init__.py
 │   ├── main.py              # Entry point
