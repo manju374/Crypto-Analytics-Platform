@@ -1,4 +1,4 @@
-# 🚀 Kasparro Backend - Crypto Analytics Platform
+# 🚀 Crypto Analytics Platform
 
 A high-performance backend system for ingesting, normalizing, and serving cryptocurrency market data. This project demonstrates a robust **ETL Pipeline** and **RESTful API** architecture.
 
